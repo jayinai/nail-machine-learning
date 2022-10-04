@@ -3,7 +3,7 @@
 Go through these notes and frequently asked questions to nail your next machine learning interview :)
  
 
-#### Supervised vs. Unsupervised Learning?
+### Supervised vs. Unsupervised Learning?
 
 In supervised learning the machine learns a ***function that maps between *X* (all the features, or input) and *Y* (label, or output)***, so that it can make prediction on new data - given unseen X, predict its Y. For example, given the subject line, text body, and senders' email address, we can train machines to classify whether the a new email is a spam or not.
 
@@ -13,7 +13,9 @@ So in a nutshell - supervised: supervise/teach machines to make prediction; unsu
 
 
 
+### Regression vs. Classification?
 
+Both are supervised learning problems. The difference is that in regression we are trying to predict ***continuous values*** (e.g., house prices), while in classification problem we try to make predictions on ***discreate values***: e.g., is the email spam or not (2 discrete values), is the image of a dog, cat, or fish (3 descrete values)?
 
 
 
