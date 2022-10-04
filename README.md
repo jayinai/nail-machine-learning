@@ -1,6 +1,8 @@
-# Nailing Machine Learning Interviews
+# Nailing Machine Learning Interviews: Concepts
 
-Go through these notes and frequently asked questions to nail your next machine learning interview :)
+This repo is specifically designed to help you prepare for the the concept part of machine learning interviews.
+
+Definitely spend some time going through the list and make sure you understand and explain all of them well :)
  
 
 ### Supervised vs. Unsupervised Learning?
