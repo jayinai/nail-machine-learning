@@ -150,5 +150,32 @@ Some data are not linearly separable so we need to encode nonlinearity. This can
 In practice, machine learning models seldom cross continuous features. However, machine learning models do ***frequently cross one-hot feature vectors***. Think of feature crosses of one-hot feature vectors as ***logical conjunctions***.
 
 
+### <ins> Model Complexity?
+
+Ways to think about model complexity:
+
+- Model complexity as ***a function of the weights*** of all the features in the model - the higher the absolute value of the weights, the more complex a model is
+- Model complexity as ***a function of the total number of features*** with nonzero weights - the more features there are, the model complex a model will be
+
+### <ins>Regularization, L1 & L2, Lasso & Ridge?
+
+Regularization is a technique to ***combat overfitting and make the model generalize better***. 
+
+Whereas model without regularization minimize loss, model with regularization minimizes loss + complexity: `minimize(loss(data|model) + complexity)`. Regularization is a great way to reduce model complexity because it penalizes models that have weights with high absolute values.
+
+A common regularization technique is L<sub>2</sub> regularization, which defines the regularization term as the ***sum of the squares of all the feature weights***:
+
+L<sub>2</sub> regularization term: ||w||<sup>2</sup> = w<sub>1</sub><sup>2</sup> + w<sub>2</sub><sup>2</sup> + ... + w<sub>n</sub><sup>2</sup>
+
+A common alternative is L1 regularization, which is the sum of the absolute values of all feature weights:
+
+L<sub>1</sub> regularization term: ||w|| = ||w<sub>1</sub>|| + ||w<sub>2</sub>|| + ... + ||w<sub>n</sub>||
+
+And a regression ***model with L1 regularization is called Lasso, and a model with L2 regularization is called Ridge***. 
+
+In practice we would multiply the regularization term by a scalar called ***lambda*** (hence `minimize(loss(data|model) +  lambda * complexity`) to control the degree of penalization. Too high a lambda value and the model might become too simple and runs the risk of underfitting, while too low a lambda value the model will becoming too complex and might overfit. When lambda is zero, the model essentially doesn't have any regularization at all.
+
+
+Another regularization technique is called dropout, which is almost exclusively used in neural network training. Dropout randomly selects neurons to ignore during training to reduce the complexity of neural network models. More on dropout later.
 
 
