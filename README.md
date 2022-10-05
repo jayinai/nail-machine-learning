@@ -19,6 +19,10 @@ So in a nutshell - supervised: supervise/teach machines to make prediction; unsu
 
 Both are supervised learning problems. The difference is that in regression we are trying to predict ***continuous values*** (e.g., house prices), while in classification problem we try to make predictions on ***discrete values***: e.g., is the email spam or not (2 discrete values), is the image of a dog, cat, or fish (3 discrete values)?
 
+A regression algorithm example is [linear regression](https://en.wikipedia.org/wiki/Linear_regression), and its classification counterpart is [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) - don't be fooled by its name, even though it's called regression, it's used to tack classification problems (e.g., spam or not)
+
+And in reality classification algorithm such as logistic regression doesn't just output 'spam' or 'non-spam' (or in the numeric world, 1 or 0). Rather, they'd generate a probability between 0 and 1, and while by default 0.5 is used as the decision boundary, you can definitely set your own threshold based on your use case.
+
 
 
 ### <ins> How Does a Model Learn?
@@ -179,3 +183,4 @@ In practice we would multiply the regularization term by a scalar called ***lamb
 Another regularization technique is called dropout, which is almost exclusively used in neural network training. Dropout randomly selects neurons to ignore during training to reduce the complexity of neural network models. More on dropout later.
 
 
+### 
