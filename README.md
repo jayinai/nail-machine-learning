@@ -183,4 +183,10 @@ In practice we would multiply the regularization term by a scalar called ***lamb
 Another regularization technique is called dropout, which is almost exclusively used in neural network training. Dropout randomly selects neurons to ignore during training to reduce the complexity of neural network models. More on dropout later.
 
 
-### 
+### <ins> Why Accuracy Can Be Misleading?
+
+In classification problems, one commonly seen metric is called accuracy, which measures the percentage of correct prediction over all predictions. Sounds like a good metric, right?
+
+Well, that's not the whole picture. Accuracy can actually be a poor or misleading metric, because ***different prediction mistakes can have different consequence, and accuracy is not robust to dataset with imbalanced labels***. For instance, say we have a 100 patients, out of whom 2 have cancer. Is a model that predicts all 100 patients as cancer free (and thus has a high accuracy of 98%) a good model?
+
+If we use accuracy as the metric, we might be misled to believe so.
