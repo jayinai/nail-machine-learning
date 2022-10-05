@@ -133,10 +133,12 @@ Conceptually, features that help the machine learning models learn more effectiv
 
 This is by no means an exhaustive list, and continues to expand:
 
-- ***Scale*** feature values from their natural range (e.g., 1 to 9999999) to a standard range (0 to 1 or -1 to +1). This helps model converge faster and learn proper weights
-- Handle ***outliers***: taking the log, and/or cap it at a threshold
+- ***Scaling*** scale feature values from their natural range (e.g., 1 to 9999999) to a standard range (0 to 1 or -1 to +1). This helps model converge faster and learn proper weights
 - ***Binning***: convert numerical into categorical, and then do one-hot encoding (e.g., zip code)
-- Handle ***missing values, duplicate, or bad labels/features values***
+- ***Outliers***: take the log, and/or cap it at a threshold
+- ***Missing values***: Impute with median, mean; Impute value from neighbours; train a classifier to impute values; create a boolean feature to indicate if the current feature has missing values
+- ***Duplicate***: remove them; also if the number of duplicate is not trivial, look into the data collection pipeline and identify issues
+- ***Bad feature/label***: (e.g., age=240) usually it makes sense to remove them but if they appear often also make sure to look into the data collection pipeline and fix potential issues
 
 
 ### <ins> Nonlinearity and Feature Crosses?
