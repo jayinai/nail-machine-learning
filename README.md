@@ -250,3 +250,23 @@ AUC can be desirable for the two reasons:
 
 - AUC is ***scale-invariant***. It measures how well predictions are ranked, rather than their absolute values.
 - AUC is ***classification-threshold-invariant***. It measures the quality of the model's predictions irrespective of what classification threshold is chosen.
+
+
+
+### <ins> Prediction Bias?
+
+For a classification problem, ***prediction bias*** is a quantity that measures how far apart *average of predictions* and *average of observations* are. Don't confuse prediction bias with the bias term in `y=w*x + b`
+
+For example, let's say we know that on average, 1% of all emails are spam. If we don't know anything at all about a given email, we should predict that it's 1% likely to be spam. Similarly, a good spam model should predict on average that emails are 1% likely to be spam. If instead, the model's average prediction is 20% likelihood of being spam, we can conclude that it exhibits prediction bias.
+
+Possible root causes of prediction bias are:
+
+- Incomplete feature set
+- Noisy data set
+- Buggy pipeline
+- Biased training sample
+- Overly strong regularization
+
+***A good model will usually have near-zero bias***. That said, a low prediction bias does not prove that your model is good. A really terrible model could have a zero prediction bias. For example, a model that just predicts the mean value for all examples would be a bad model, despite having zero bias.
+
+So our goal is not to minimize the prediction bias. We still need to minimize the loss function with respect to a specific metric we chose; examining the prediction bias is a sanity check.
