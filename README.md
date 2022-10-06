@@ -1,4 +1,4 @@
-# Nailing Machine Learning Interviews: Concepts
+# Nailing Machine Learning Concepts
 
 This repo is designed to help you ***prepare for the concept part of machine learning interviews***. If you have machine learning or data science related interviews coming up, then you should definitely spend some time going through the list and make sure you understand all the concepts and can explain them well. If you can, your dream job won't just be a dream anymore :)
 
