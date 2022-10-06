@@ -21,7 +21,7 @@ Both are supervised learning problems. The difference is that in regression we a
 
 A regression algorithm example is [linear regression](https://en.wikipedia.org/wiki/Linear_regression), and its classification counterpart is [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) - don't be fooled by its name, even though it's called regression, it's used to tack classification problems (e.g., spam or not)
 
-And in reality classification algorithm such as logistic regression doesn't just output 'spam' or 'non-spam' (or in the numeric world, 1 or 0). Rather, they'd generate a probability between 0 and 1, and while by default 0.5 is used as the decision boundary, you can definitely set your own threshold based on your use case.
+And in reality classification algorithm such as logistic regression doesn't just output 'spam' or 'non-spam' (or in the numeric world, 1 or 0). Rather, they'd generate a probability between 0 and 1. While by default 0.5 is used as the decision threshold, you can definitely set your own threshold based on your use case (For example, mistakenly labeling a non-spam message as spam is very bad, you'd be pissed when you find an important email has been sitting in your spam folder for days. On the other hand, mistakenly labeling a spam message as non-spam is unpleasant, but is not the end of world).
 
 
 
@@ -190,3 +190,63 @@ In classification problems, one commonly seen metric is called accuracy, which m
 Well, that's not the whole picture. Accuracy can actually be a poor or misleading metric, because ***different prediction mistakes can have different consequence, and accuracy is not robust to dataset with imbalanced labels***. For instance, say we have a 100 patients, out of whom 2 have cancer. Is a model that predicts all 100 patients as cancer free (and thus has a high accuracy of 98%) a good model?
 
 If we use accuracy as the metric, we might be misled to believe so.
+
+
+### <ins> True Positive, True Negative, False Positive, False Negative?
+
+These terms could be intimidating for every new comers. Think of them this way
+
+- ***True*** means the model *correctly predicts* the label, while
+- ***False*** means the model *incorrectly predicts* the label
+
+What do positive and negative mean then? Well they could mean different things in different use cases but usually positive signifies the presence of something. It could mean spam (so negative means non-spam), or raining (whereas negative means not raining). 
+
+In the case of email spam classification, combining true/false with positive/negative we have:
+
+- ***True Positive***: the model *correctly* predicts a spam as spam
+- ***True Negative***: the model *correctly* predicts a non-spam as non-spam
+- ***False Positive***: the model *incorrectly* predicts a non-spam as spam (worst outcome)
+- ***False Negative***: the model *incorrectly* predicts a spam as non-spam (bad)
+ 
+It will take some time for the concepts to sink in. Just remember: ***True means the model is doing a job, and False bad job***; positive and negative are just codes that are mapped to labels
+ 
+In practice people often use a table called [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) to summarize the above four metrics.
+ 
+ 
+### <ins> Precision vs. Recall, and F1 Score?
+
+Previously we talked about that accuracy can be misleading, and also introduced true positive (TP), true negative (TN), false positive (FP), and false negative FN). A naturally next step is two metrics called precision and recall.
+
+Precision is defined as `Precision = TP / (TP + FP)`, and recall is defined as `Recall = TP / (TP + FN)`.
+
+Intuitively, precision is the ratio of correct positive predictions to the total ***predicted positives***, while recall is the ratio of correct positive predictions to the ***total actual positives***.
+
+Using the email spam example, precision means out of all the emails that ***the model thinks*** as spam, what percentages are spam, and recall means ***out of all the actual spam***, what percentage the model correctly identifies them? Try to let the ideas sink in...
+
+Previously we talked about classification threshold, and changing the threshold would affect both precision and recall. In general, ***raising the classification threshold*** will
+
+- reduce false positives, thus ***raising precision***
+- cause the number of true positives to decrease or stay the same and will cause the number of false negatives to increase or stay the same. Therefore, ***recall will either stay constant or decrease***
+
+In an ideal world both precision and recall scores are perfect at 1.0, but in practice there is often a tension between the two. ***Improving precision typically reduces recall and vice versa***. Since you can't get both, you have to decide, and deciding whether to use precision or recall should always be ***tied to business decisions to avoid what's more costly***.
+
+Also, various metrics have been developed that rely on both precision and recall. For example, [F1 score (or F-score)](https://en.wikipedia.org/wiki/F-score) combines the precision and recall of a classifier into a single metric by taking their harmonic mean:
+
+`F1 score = 2 * (precision * recall) / (precision + recall)`
+
+The highest possible value of an F1 score is 1, indicating perfect precision and recall, and the lowest possible value is 0, if either the precision or the recall is zero.
+
+
+### <ins> ROC Curve and AUC?
+
+An [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) (receiver operating characteristic curve) is a graph showing the performance of a binary classification model *at all classification thresholds*. This curve plots two parameters:
+
+- True Positive Rate: `PTR = TP / (TP + FN)`
+- False Positive Rate: `FPR = FP / (FP + TN)`
+
+***AUC*** stands for "Area under the ROC Curve", which ranges in value from 0 to 1. A model whose predictions are 100% wrong has an AUC of 0.0; one whose predictions are 100% correct has an AUC of 1.0. One way of interpreting AUC is as the ***probability that the model ranks a random positive example more highly than a random negative example***.
+
+AUC can be desirable for the two reasons:
+
+- AUC is ***scale-invariant***. It measures how well predictions are ranked, rather than their absolute values.
+- AUC is ***classification-threshold-invariant***. It measures the quality of the model's predictions irrespective of what classification threshold is chosen.
