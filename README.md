@@ -23,7 +23,32 @@ A regression algorithm example is [linear regression](https://en.wikipedia.org/w
 
 And in reality classification algorithm such as logistic regression doesn't just output 'spam' or 'non-spam' (or in the numeric world, 1 or 0). Rather, they'd generate a probability between 0 and 1. While by default 0.5 is used as the decision threshold, you can definitely set your own threshold based on your use case (For example, mistakenly labeling a non-spam message as spam is very bad, you'd be pissed when you find an important email has been sitting in your spam folder for days. On the other hand, mistakenly labeling a spam message as non-spam is unpleasant, but is not the end of world).
 
+### <ins> Classification: Binary vs. Multiclass?
 
+A binary classification is where we have two possible outcomes (spam vs. non-spam), while a multiclass is where we have, well, multiple possible outputs (or classes). For example, is the sentiment of an article positive, negative, or neutral? 
+
+We can formulate a multiclass problem using binary classification: given a classification problem with N possible outcomes, a ***one-vs.-all*** method consists of N separate binary classifiers - one binary classifier for each possible outcome. For sentiment analysis we would have 3 binary classifiers:
+
+1. Is the article's sentiment positive? No
+2. Is the article's sentiment negative? No
+3. Is the article's sentiment neutral? Yes
+
+This method would work when the total number of classes is small, but becomes increasingly inefficient as the number of classes rises. That's when ***Softmax*** comes in.
+
+While a binary classifier outputs a decimal probability between 0 and 1.0, ***Softmax assigns decimal probabilities to each class in a multi-class problem***. Those decimal probabilities must add up to 1.0. For the sentiment analysis use case, we might have these probabilities:
+
+1. Positive: 0.27
+2. Negative: 0.09
+3. Neutral: 0.64
+
+When we have a huge number of classes (e.g., 10k+), regular Softmax can start to become expensive too. That's when we can apply ***candidate sampling***, which means that Softmax calculates a probability for all the positive labels but only for a random sample of negative labels. Think of it this way:
+
+>If we are interested in determining whether an input image is a beagle or a bloodhound, we don't have to provide probabilities for every non-doggy example.
+
+
+Also, Softmax assumes that each example is a member of exactly one class. Some examples, however, can simultaneously be a member of multiple classes (for instance, you have an image that has both cat and dog in it). In that case you need to rely on a [multioutput classifier](https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html).
+
+Don't confuse multiclass with multioutput.
 
 ### <ins> How Does a Model Learn?
 
@@ -171,13 +196,16 @@ A common regularization technique is L<sub>2</sub> regularization, which defines
 
 L<sub>2</sub> regularization term: ||w||<sup>2</sup> = w<sub>1</sub><sup>2</sup> + w<sub>2</sub><sup>2</sup> + ... + w<sub>n</sub><sup>2</sup>
 
-A common alternative is L1 regularization, which is the sum of the absolute values of all feature weights:
+A common alternative is L1 regularization, which is the ***sum of the absolute values** of all feature weights:
 
 L<sub>1</sub> regularization term: ||w|| = ||w<sub>1</sub>|| + ||w<sub>2</sub>|| + ... + ||w<sub>n</sub>||
 
-And a regression ***model with L1 regularization is called Lasso, and a model with L2 regularization is called Ridge***. 
+And a regression ***model with L<sub>1</sub> regularization is called Lasso, and a model with L<sub>2</sub> regularization is called Ridge***. 
 
-In practice we would multiply the regularization term by a scalar called ***lambda*** (hence `minimize(loss(data|model) +  lambda * complexity`) to control the degree of penalization. Too high a lambda value and the model might become too simple and runs the risk of underfitting, while too low a lambda value the model will becoming too complex and might overfit. When lambda is zero, the model essentially doesn't have any regularization at all.
+Another interesting property: while L<sub>2</sub> regularization encourages weights to be small, it doesn't force them to exactly 0.0; ***L<sub>1</sub> can push weights to zero, thus in a way performing feature selection.*** This can come in handy when you have hi dimensional data
+
+
+Also, in practice we would multiply the regularization term by a scalar called ***lambda*** (hence `minimize(loss(data|model) +  lambda * complexity`) to control the degree of penalization. Too high a lambda value and the model might become too simple and runs the risk of underfitting, while too low a lambda value the model will becoming too complex and might overfit. When lambda is zero, the model essentially doesn't have any regularization at all.
 
 
 Another regularization technique is called dropout, which is almost exclusively used in neural network training. Dropout randomly selects neurons to ignore during training to reduce the complexity of neural network models. More on dropout later.
@@ -270,3 +298,16 @@ Possible root causes of prediction bias are:
 ***A good model will usually have near-zero bias***. That said, a low prediction bias does not prove that your model is good. A really terrible model could have a zero prediction bias. For example, a model that just predicts the mean value for all examples would be a bad model, despite having zero bias.
 
 So our goal is not to minimize the prediction bias. We still need to minimize the loss function with respect to a specific metric we chose; examining the prediction bias is a sanity check.
+
+
+### <ins> Backpropagation?
+
+Backpropagation is the most common training algorithm for neural networks. Intuitively, what it does is to compute the gradient of the loss function with respect to each weight, one layer at a time, and propagate backward error layer by layer. 
+
+All popular deep learning frameworks (such as TensorFlow or PyTorch) handle backpropagation automatically so you don't have to, but it's still a good idea to understand what it does under the hood or even implement it on a small neuron network to really help the concept sink in.
+
+If visuals help you better understand a concept, take a look at this [backpropagation algorithm visual explanation](https://developers-dot-devsite-v2-prod.appspot.com/machine-learning/crash-course/backprop-scroll).
+
+In practice, there are also a number of ways for backpropagation to go wrong. For example, ***gradients can vanish*** (when you take the product of many small terms), ***explode*** (when you multiple big terms), or you might even have ***dead units***.
+
+Common curves include add activation function such as ReLU (for vanishing gradients), and lower the learning rate.
