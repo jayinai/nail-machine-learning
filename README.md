@@ -1,9 +1,11 @@
 # Nailing Machine Learning Concepts
 
-This repo is designed to help you ***prepare for the concept part of machine learning interviews***. If you have machine learning or data science related interviews coming up, then you should definitely spend some time going through the list and make sure you understand all the concepts and can explain them well. If you can, your dream job won't just be a dream anymore :)
+This repo is designed to ***help you get familiar with important machine learning concepts***.
 
-That said, you can of course use this as a casual learning resource to get familiar with important machine learning concepts. Hope this would be helpful to you.
+And of course one typical usage is to use this ***prepare for the machine learning interviews***. If you have machine learning or data science related interviews coming up, then you may spend some time going through the list and make sure you understand all the concepts and can explain them well. If you can, then your dream job will probably not be a dream anymore :)
 
+
+Let's get started!!!
 
 ### <ins> Supervised vs. Unsupervised Learning?
 
