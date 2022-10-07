@@ -2,7 +2,7 @@
 
 This repo is designed to ***help you get familiar with important machine learning concepts***.
 
-And of course one typical usage is to use this ***prepare for the machine learning interviews***. If you have machine learning or data science related interviews coming up, then you may spend some time going through the list and make sure you understand all the concepts and can explain them well. If you can, then your dream job will probably not be a dream anymore :)
+And of course one typical usage is using this to ***prepare for data science and machine learning interviews***. If you have these interviews coming up, then you may spend some time going through the list and make sure you understand all the concepts and can explain them well. If you can, then your dream job will probably not be a dream anymore :)
 
 
 Let's get started!!!
@@ -313,3 +313,28 @@ If visuals help you better understand a concept, take a look at this [backpropag
 In practice, there are also a number of ways for backpropagation to go wrong. For example, ***gradients can vanish*** (when you take the product of many small terms), ***explode*** (when you multiple big terms), or you might even have ***dead units***.
 
 Common curves include add activation function such as ReLU (for vanishing gradients), and lower the learning rate.
+
+
+### <ins> Embedding?
+
+In machine learning and natural language processing (NLP), an ***embedding*** is a low dimensional vector to represent high dimensional or unstructured data (text, images, video, etc.). An embedding, ideally, captures some of the similarities of the input by placing similar inputs close together in the embedding space. For instance, comedy movies would be will stay close in one corner of the embedding space and animations at another. This could come in handy for application such as recommendation systems.
+
+One popular embedding example is [***word embedding***](https://en.wikipedia.org/wiki/Word_embedding), where each word is represented with a n-dimensional vector, which encodes a word's semantic meaning and words with similar meanings are closer together in the embedding space. Embeddings are lookup tables, and the closeness (or distance) between two embeddings can be computed with their dot product.
+
+As embedding can be thought of a way to reduce dimensionality, techniques such as principal component analysis (PCA) has been used to create word embeddings. Given a set of instances like bag of words vectors, PCA tries to find highly correlated dimensions that can be collapsed into a single dimension.
+
+Another way to obtain embeddings is to train neural networks to learn them. For example, [BERT](https://arxiv.org/abs/1810.04805), published by Google, is way to obtain pre-trained language model word embedding from text data.
+
+How to choose embedding's dimension? One rule of thumb to is use the 4th root of the number of categories. If you have a vocabulary size of 100, the a 3-D (`3 = 100**0.25`) embedding would probably work.
+
+
+### <ins> Principal Component Analysis (PCA)?
+
+Principal component analysis (PCA) is a ***dimensionality reduction*** technique that can help ***increase interpretability of data while preserving the maximum amount of information***.
+
+PCA finds the top N principal components, along which the data vary (spread out) the most. Intuitively, the more spread out the data along a specific dimension, the more information is contained, and therefore the more important that dimension is for the pattern recognition of the dataset.
+
+How do we choose N (number of principal component) in PCA? One way is to set N to number of total features first, and get the ***cumulative sum of the [`explained_variance_ratio_`](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)***, and make a tradeoff between the ratio and number of dimensions on a case by case basis.
+
+Keep in mind PCA will create new value vectors rather than taking the feature values from the original dataset. Also,  applying normalization to the dataset prior to PCA is important since PCA can be thought of a variance maximizing exercise.
+
