@@ -6,7 +6,8 @@ You can use this repo to ***prepare for machine learning and data science interv
 
 Let's get started!!!
 
-#### Topics
+#### [Machine Learning Concepts](concepts.md)
+- [Supervised vs. Unsupervised Learning?](concepts.md#-supervised-vs-unsupervised-learning)
 
-- [Machine Learning Concepts](concepts.md)
+
 - [Machine Learning Operationalization (MLOps)](mlops.md)
