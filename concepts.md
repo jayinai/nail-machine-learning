@@ -94,6 +94,26 @@ A related topic in machine learning: bias-variance tradeoff. Skipping all the ma
 We want our model to strike a good balance between bias and variance because if we reduce model complexity, the bias error might increase and if we increase its complexity, the variance error might go up. An optimal balance leads to a model that neither overfits nor underfits.
 
 
+### <ins> Bayes Error Rate?
+
+In statistics, the optimal error rate is also called ​Bayes error rate​, or Bayes rate. For tasks that humans are reasonably good at, such as recognizing pictures or transcribing audio clips, we can use human performance as an estimate of the Bayes error rate. This can be used a benchmark towards which we optimize our ML models.
+
+And previously we talked about bias and variance tradeoff. Given the idea of Bayes error rate, we can further divide bias into **unavoidable bias** and **avoidable bias​**, where unavoidable bias is the Bayes error rate, and avoidable bias is the gap between Bayes error and training error. The different between training error and test error can been seen as variance.
+
+### <ins> How to Address Bias and Variance?
+
+- High avoidable bias: increase the model complexity and size, reduce regularization
+- High variance: decrease model size, add more data, add regularization (L2, dropout, etc.), add early stopping, reduce features
+
+One unintuitive thing about adding more data: as we add more training data, training error can only get worse. And again there often is this tension between bias and variance where you might reduce one at the cost of increasing the other. So use the techniques with caution.
+
+### <ins> Plotting Error/Learning Curves
+
+It's often helpful to plot the training error and test error on the same graph and analyze the error. Common Y axis value is the error, and common X axis can be training data size, time, etc.
+
+When we plot the error against the time/epoch, if loss curve decreases doesn't flatten out, it's a sign is a sign that the model hasn't trained sufficiently.
+
+
 ### <ins> Data Splitting: Training, Validation, Test Sets?
 
 First of all, ***the purpose of each set***:
@@ -115,7 +135,7 @@ What's large enough though? It's really problem dependant but if you care about 
 
 Also make sure to consider the following when you split the data:
 
-- Are training/validation/test sets ***representative*** of the whole dataset? In other words, are they from the same distribution?
+- Choose ***validation and test sets to reflect data you expect to get in the future*** and want to do well on; this is would be an extra test on the generalization ability of your model
 - Are there any examples in validation/test set ***duplicates*** of examples in the training set?
 - For time series data, is the dataset split in a ***chronological order***?
 - Test sets and validation sets "wear out" with repeated use. If possible, it's a good idea to collect more data to ***"refresh"*** the test set and validation set.
@@ -329,3 +349,29 @@ PCA finds the top N principal components, along which the data vary (spread out)
 How do we choose N (number of principal component) in PCA? One way is to set N to number of total features first, and get the ***cumulative sum of the [`explained_variance_ratio_`](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)***, and make a tradeoff between the ratio and number of dimensions on a case by case basis.
 
 Keep in mind PCA will create new value vectors rather than taking the feature values from the original dataset. Also,  applying normalization to the dataset prior to PCA is important since PCA can be thought of a variance maximizing exercise.
+
+
+### <ins> How to Decide on Metrics
+
+You should have a single number metric for your ML project, and it should reflect the business goals.
+
+- This metric can be a weight average of some other metrics (what F1 is to recall and precision)
+- This metric can be a weight average of same metric across different cases (e.g., you have a model for each of the N geographic regions or user groups)
+- In case you can't directly derive a number from multiple metrics (e.g., model recall score, model size, inference run time), you can choose the **fix N-1 and optimize the one** strategy, where you decide the acceptable thresholds for all but one most important metric (e.g., you decide a model size < 100Mb and an inference time < 10ms to be acceptable, and try to optimize the recall score given these constraints)  
+
+
+### <ins> Changing Validation Data and the Metric
+
+Don't be afraid to change the val/test sets and even the metric.
+
+- If you had overfit the val set, you should get more val set data
+- If the actual distribution you care about is different from the val/test set distribution, get new val/test set data
+- If your metric is no longer measuring what is most important to you, change the metric
+
+### <ins> Error Analysis
+
+No ML system is perfect and it makes prediction errors. And errors can be of different types: e.g., if you train an image classifier, it might perform poorly on blurry images, or it might misclassify A as B more often than B as A. Instead of spending all the time tuning parameter, we should spend some time to manually check what kind of errors the ML system makes and potentially propose solutions, which often lead to bigger improvement in the long run. Different error types might have different consequences and may cost differently to fix, and we should try maximize our return on investment when choosing what errors to fix first.
+
+Notice that error analysis is usually performed on validation set, and it's often a good idea to split the validation set into two parts and only perform error analysis on one part of them and treat the other as a "black box". This is so we don't overfit the validation set too quickly. And as a rule of thumb, performing error analysis on 100-200 examples should often be enough to help spot the reducible error (if any) to correct.
+
+Also, performing error analysis on the training is not uncommon, and will help spot issues such as high bias and identify the upper bound ML model can do (e.g., if an image is so blurry that it's even hard for humans to recognize it, then we won't blame the models for misclassifying it)

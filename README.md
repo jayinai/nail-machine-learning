@@ -19,6 +19,9 @@ Topics covered:
 - Gradient Descent vs. Stochastic Gradient Descent?
 - Generalization?
 - Overfitting vs. Underfitting, Bias-Variance Tradeoff?
+- Bayes Error Rate?
+- How to Address Bias and Variance?
+- Plotting Error/Learning Curves
 - Data Splitting: Training, Validation, Test Sets?
 - Feature Representation?
 - What's a Good Feature?
@@ -34,15 +37,16 @@ Topics covered:
 - Backpropagation?
 - Embedding?
 - Principal Component Analysis (PCA)?
+- How to Decide on Metrics
+- Changing Validation Data and the Metric
+- Error Analysis
+
 
 
 ## [Machine Learning Operationalization (MLOps)](mlops.md)
 
 Topics covered:
 - Setting up an End-To-End ML System in the Real World
-- How to Decide on Metrics
-- Changing Validation Data and the Metric
-- Error Analysis
 - Static vs. Dynamic Training
 - Offline vs. Online Inference
 - Human Bias
