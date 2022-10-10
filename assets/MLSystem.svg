@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   viewBox="0 0 918.98669 411.6756"
+   stroke-miterlimit="10"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="ml-system.svg"
+   width="918.98669"
+   height="411.6756"
+   style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+  <desc>ML system diagram containing the following components: data collection, feature extraction, process management tools, data verification, configuration, machine resource management, monitoring, and serving infrastructure, and ML code. The ML code part of the diagram is dwarfed by the other nine components.</desc>
+  <metadata
+     id="metadata121">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs119" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1597"
+     inkscape:window-height="891"
+     id="namedview117"
+     showgrid="false"
+     inkscape:zoom="1.1416667"
+     inkscape:cx="334.91501"
+     inkscape:cy="277.41144"
+     inkscape:window-x="127"
+     inkscape:window-y="134"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <clipPath
+     id="g13063ce0d7_0_741.0">
+    <path
+       d="M 0,0 960,0 960,540 0,540 0,0 Z"
+       id="path5"
+       inkscape:connector-curvature="0"
+       style="clip-rule:nonzero" />
+  </clipPath>
+  <g
+     clip-path="url(#g13063ce0d7_0_741.0)"
+     id="g7"
+     transform="translate(-27.128824,-121.22272)"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
+    <defs
+       id="defs11" />
+    <path
+       d="m 363.8294,301.23752 42.58267,0 0,30.29922 -42.58267,0 z"
+       id="path109"
+       inkscape:connector-curvature="0"
+       style="fill:#cfe2f3;fill-rule:evenodd" />
+    <g
+       id="NonMLCode">
+      <desc
+         id="desc4310">Non-Machine Learning System Blocks</desc>
+      <g
+         id="DataCollection"
+         style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10">
+        <desc
+           id="desc4285">Data Collection Block</desc>
+        <path
+           style="fill:#f3f3f3;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           id="path41"
+           d="m 182.46326,142.34908 157.00787,0 0,120.7559 -157.00787,0 z" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           id="path43"
+           d="m 182.46326,142.34908 157.00787,0 0,120.7559 -157.00787,0 z" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4346"
+           y="209.25107"
+           x="201.64835"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4348"
+             y="209.25107"
+             x="201.64835"
+             sodipodi:role="line"><tspan
+               id="tspan4350"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="209.25107"
+               x="201.64835">Data Collection</tspan></tspan></text>
+      </g>
+      <g
+         id="DataVerification">
+        <desc
+           id="desc4296">Data Verification Block</desc>
+        <path
+           style="fill:#999999;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 352.38715,159.74803 127.96851,0 0,120.75591 -127.96851,0 z"
+           id="path47" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 352.38715,159.74803 127.96851,0 0,120.75591 -127.96851,0 z"
+           id="path49" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4288"
+           y="215.44336"
+           x="444.36456"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4290"
+             y="215.44336"
+             x="400.99481"
+             sodipodi:role="line"><tspan
+               dx="0 0 0 0 0"
+               id="tspan4292"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="215.44336"
+               x="400.99481">Data</tspan></tspan><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4296"
+             y="237.31836"
+             x="372.76239"
+             sodipodi:role="line"><tspan
+               id="tspan4298"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="237.31836"
+               x="372.76239">Verification</tspan></tspan></text>
+      </g>
+      <g
+         id="MachineResourceManagement">
+        <desc
+           id="desc4308">Machine Resource Management Block</desc>
+        <path
+           style="fill:#d9d9d9;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 490.8937,176.77428 140.47244,0 0,103.74803 -140.47244,0 z"
+           id="path87" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 490.8937,176.77428 140.47244,0 0,103.74803 -140.47244,0 z"
+           id="path89" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4300"
+           y="211.60117"
+           x="530.2016"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4302"
+             y="211.60117"
+             x="530.2016"
+             sodipodi:role="line"><tspan
+               dx="0 0 0 0 0 0 0 0"
+               id="tspan4304"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="211.60117"
+               x="530.2016">Machine</tspan></tspan><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4308"
+             y="233.47617"
+             x="526.68109"
+             sodipodi:role="line"><tspan
+               dx="0 0 0 0 0 0 0 0 0"
+               id="tspan4310"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="233.47617"
+               x="526.68109">Resource</tspan></tspan><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4314"
+             y="255.35117"
+             x="509.18106"
+             sodipodi:role="line"><tspan
+               id="tspan4316"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="255.35117"
+               x="509.18106">Management</tspan></tspan></text>
+      </g>
+      <g
+         id="ServingInfrastructure">
+        <desc
+           id="desc4326">Serving Infrastructure Block</desc>
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 644.6076,149.27821 135.30707,0 0,279.02362 -135.30707,0 z"
+           id="path71" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4318"
+           y="284.37656"
+           x="685.71204"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4320"
+             y="284.37656"
+             x="685.71204"
+             sodipodi:role="line"><tspan
+               dx="0 0 0 0 0 0 0 0"
+               id="tspan4322"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="284.37656"
+               x="685.71204">Serving</tspan></tspan><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+             id="tspan4326"
+             y="306.25156"
+             x="659.00061"
+             sodipodi:role="line"><tspan
+               id="tspan4328"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="306.25156"
+               x="659.00061">Infrastructure</tspan></tspan></text>
+      </g>
+      <g
+         id="Monitoring">
+        <desc
+           id="desc4346">Monitoring Block</desc>
+        <path
+           style="fill:#d9d9d9;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 514.15094,351.3491 117.22833,0 0,120.75589 -117.22833,0 z"
+           id="path103" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 514.15094,351.3491 117.22833,0 0,120.75589 -117.22833,0 z"
+           id="path105" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4382"
+           y="416.5549"
+           x="572.63263"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan4384"
+             y="416.5549"
+             x="572.63263"
+             sodipodi:role="line"><tspan
+               id="tspan4386"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle"
+               y="416.5549"
+               x="572.63263">Monitoring</tspan></tspan></text>
+      </g>
+      <g
+         id="Configuration">
+        <desc
+           id="desc4356">Configuration Block</desc>
+        <path
+           style="fill:#ffffff;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 365.61548,352.27036 135.3071,0 0,162.74014 -135.3071,0 z"
+           id="path97" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 365.61548,352.27036 135.3071,0 0,162.74014 -135.3071,0 z"
+           id="path99" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4376"
+           y="438.46829"
+           x="380.88013"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan4378"
+             y="438.46829"
+             x="380.88013"
+             sodipodi:role="line"><tspan
+               id="tspan4380"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="438.46829"
+               x="380.88013">Configuration</tspan></tspan></text>
+      </g>
+      <g
+         id="AnalysisTools">
+        <desc
+           id="desc4336">Analysis Tools Block</desc>
+        <path
+           style="fill:#efefef;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 428.39502,295.1982 201.85828,0 0,42.39371 -201.85828,0 z"
+           id="path63" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 428.39502,295.1982 201.85828,0 0,42.39371 -201.85828,0 z"
+           id="path65" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4330"
+           y="321.22293"
+           x="529.68732"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="-inkscape-font-specification:Roboto;font-family:Roboto;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+             id="tspan4332"
+             y="321.22293"
+             x="529.68732"
+             sodipodi:role="line"><tspan
+               id="tspan4334"
+               style="font-size:17.5px;text-align:center;text-anchor:middle;-inkscape-font-specification:Roboto;font-family:Roboto;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+               y="321.22293"
+               x="529.68732">Analysis Tools</tspan></tspan></text>
+      </g>
+      <g
+         id="ProcessManagementTools">
+        <desc
+           id="desc4366">Process Management Tools</desc>
+        <path
+           style="fill:#cccccc;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 223.52625,391.7979 132.09448,0 0,92.66141 -132.09448,0 z"
+           id="path77" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 223.52625,391.7979 132.09448,0 0,92.66141 -132.09448,0 z"
+           id="path79" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4362"
+           y="422.50848"
+           x="261.50916"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             id="tspan4364"
+             y="422.50848"
+             x="261.50916"
+             sodipodi:role="line"><tspan
+               id="tspan4366"
+               style="font-size:17.5px;text-align:start;text-anchor:start"
+               y="422.50848"
+               x="261.50916">Process </tspan></tspan><tspan
+             id="tspan4368"
+             y="444.38348"
+             x="237.07068"
+             sodipodi:role="line"><tspan
+               id="tspan4370"
+               style="font-size:17.5px;text-align:start;text-anchor:start"
+               y="444.38348"
+               x="237.07068">Management </tspan></tspan><tspan
+             id="tspan4372"
+             y="466.25848"
+             x="273.13025"
+             sodipodi:role="line"><tspan
+               id="tspan4374"
+               style="font-size:17.5px;text-align:start;text-anchor:start"
+               y="466.25848"
+               x="273.13025">Tools</tspan></tspan></text>
+      </g>
+      <g
+         id="FeatureExtraction">
+        <desc
+           id="desc4376">Feature Extraction Block</desc>
+        <path
+           style="fill:#d9d9d9;fill-rule:evenodd"
+           inkscape:connector-curvature="0"
+           d="m 180.0853,275.57742 161.7638,0 0,103.74805 -161.7638,0 z"
+           id="path55" />
+        <path
+           style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           d="m 180.0853,275.57742 161.7638,0 0,103.74805 -161.7638,0 z"
+           id="path57" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4352"
+           y="322.76883"
+           x="232.71341"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan4354"
+             y="322.76883"
+             x="232.71341"
+             sodipodi:role="line"><tspan
+               id="tspan4356"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="322.76883"
+               x="232.71341">Feature </tspan></tspan><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan4358"
+             y="344.64383"
+             x="221.10941"
+             sodipodi:role="line"><tspan
+               id="tspan4360"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start"
+               y="344.64383"
+               x="221.10941">Extraction </tspan></tspan></text>
+      </g>
+    </g>
+    <g
+       id="MLCode"
+       inkscape:label="MLCode">
+      <desc
+         id="desc4385">ML Code Block</desc>
+      <path
+         id="path111"
+         d="m 363.8294,301.23752 42.58267,0 0,30.29922 -42.58267,0 z"
+         inkscape:connector-curvature="0"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="379.13928"
+         y="313.71136"
+         id="text4336"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="379.13928"
+           y="313.71136"
+           id="tspan4338"><tspan
+             x="379.13928"
+             y="313.71136"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1"
+             id="tspan4340">ML </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="373.43616"
+           y="326.21136"
+           id="tspan4342"><tspan
+             x="373.43616"
+             y="326.21136"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1"
+             id="tspan4344">Code</tspan></tspan></text>
+    </g>
+  </g>
+</svg>
