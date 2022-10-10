@@ -4,7 +4,7 @@ Training machine learning models and getting great performance is worth celebrat
 
 ![ML System in real world](assets/MLSystem.svg)
 
-### <ins> Setting Up an End-to-end ML System in the Real World
+### <ins> Setting up an End-To-End ML System in the Real World
 
 These are the common steps we need to follow in order to set up an ML system in the real world:
 
@@ -20,8 +20,31 @@ These are the common steps we need to follow in order to set up an ML system in 
 
 A couple of notes:
 
-- While I listed all the previous steps, it doesn't mean you need to consider all of the them if you are just doing a quick and dirty prototope to check the feasibility of an ML system. Use your judgement call to skip a couple of steps here and there
--  ML is highly iterative in its nature. While some steps, such as business scoping and metrics, change less frequently, feature engneering and model training for examples can iterate very fast, which is a good thing because that's how your model improve. So don't assume the previous steps would follow a linear fashion.
+- While I listed all the previous steps, it doesn't mean you need to consider all of the them if you are just doing a quick and dirty prototype to check the feasibility of an ML system. Use your judgement call to skip a couple of steps here and there
+-  ML is highly iterative in its nature. While some steps, such as business scoping and metrics, change less frequently, feature engineering and model training for examples can iterate very fast, which is a good thing because that's how your model improve. So don't assume the previous steps would follow a linear fashion.
+
+
+### <ins> How to Decide on Metrics
+
+You should have a single number metric for your ML project, and it should reflect the business goals.
+
+- This metric can be a weight average of some other metrics (what F1 is to recall and precision)
+- This metric can be a weight average of same metric across different cases (e.g., you have a model for each of the N geographic regions or user groups)
+- In case you can't directly derive a number from multiple metrics (e.g., model recall score, model size, inference run time), you can choose the **fix N-1 and optimize the one** strategy, where you decide the acceptable thresholds for all but one most important metric (e.g., you decide a model size < 100Mb and an inference time < 10ms to be acceptable, and try to optimize the recall score given these constraints)  
+
+
+### <ins> Changing Validation Data and the Metric
+
+Don't be afraid to change the val/test sets and even the metric.
+
+- If you had overfit the val set, you should get more val set data
+- If the actual distribution you care about is different from the val/test set distribution, get new val/test set data
+- If your metric is no longer measuring what is most important to you, change the metric
+
+### <ins> Error Analysis
+
+No ML system is perfect and it makes prediction errors. And errors can be of different types: e.g., if you train an image classifier, it might perform poorly on blurry images, or it might misclassify A as B more often than B as A. Instead of spending all the time tuning parameter, we should spend some time to manually check what kind of errors the ML system makes and potentially propose solutions, which often lead to bigger improvement in the long run. Different error types might have different consequences and may cost differently to fix, and we should try maximize our return on investment when choosing what errors to fix first.
+
 
 
 ### <ins> Static vs. Dynamic Training

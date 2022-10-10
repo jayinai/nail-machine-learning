@@ -39,7 +39,10 @@ Topics covered:
 ## [Machine Learning Operationalization (MLOps)](mlops.md)
 
 Topics covered:
-- Setting Up an End-to-end ML System in the Real World
+- Setting up an End-To-End ML System in the Real World
+- How to Decide on Metrics
+- Changing Validation Data and the Metric
+- Error Analysis
 - Static vs. Dynamic Training
 - Offline vs. Online Inference
 - Human Bias
