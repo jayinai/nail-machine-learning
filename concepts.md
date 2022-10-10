@@ -9,7 +9,6 @@ On the other hand, in unsupervised learning there is ***no label given, so machi
 So in a nutshell - supervised: supervise/teach machines to make prediction; unsupervised: "dear machine, I trust you, discover some hidden patterns for me on your own"
 
 
-
 ### <ins> Regression vs. Classification?
 
 Both are supervised learning problems. The difference is that in regression we are trying to predict ***continuous values*** (e.g., house prices), while in classification problem we try to make predictions on ***discrete values***: e.g., is the email spam or not (2 discrete values), is the image of a dog, cat, or fish (3 discrete values)?
@@ -181,7 +180,7 @@ Ways to think about model complexity:
 - Model complexity as ***a function of the weights*** of all the features in the model - the higher the absolute value of the weights, the more complex a model is
 - Model complexity as ***a function of the total number of features*** with nonzero weights - the more features there are, the model complex a model will be
 
-### <ins>Regularization, L1 & L2, Lasso & Ridge?
+### <ins> Regularization, L1 & L2, Lasso & Ridge?
 
 Regularization is a technique to ***combat overfitting and make the model generalize better***.
 
