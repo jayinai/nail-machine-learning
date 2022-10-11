@@ -40,6 +40,7 @@ Topics covered:
 - How to Decide on Metrics
 - Changing Validation Data and the Metric
 - Error Analysis
+- Standardization vs. Normalization?
 
 
 

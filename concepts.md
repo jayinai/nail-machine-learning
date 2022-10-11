@@ -375,3 +375,9 @@ No ML system is perfect and it makes prediction errors. And errors can be of dif
 Notice that error analysis is usually performed on validation set, and it's often a good idea to split the validation set into two parts and only perform error analysis on one part of them and treat the other as a "black box". This is so we don't overfit the validation set too quickly. And as a rule of thumb, performing error analysis on 100-200 examples should often be enough to help spot the reducible error (if any) to correct.
 
 Also, performing error analysis on the training is not uncommon, and will help spot issues such as high bias and identify the upper bound ML model can do (e.g., if an image is so blurry that it's even hard for humans to recognize it, then we won't blame the models for misclassifying it)
+
+### <ins> Standardization vs. Normalization?
+
+One major difference is that **standardization is column-wise** operation while **normalization is row-wise operation**, where each row is one data point and each column represents one feature.
+
+For standardization we remove the mean value of each feature, then scale it by dividing non-constant features by their standard deviation. For normalization we scale each individual sample to have unit norm. Normalization process can be useful if you plan to use a quadratic form such as the dot-product to quantify the similarity of any pair of samples
