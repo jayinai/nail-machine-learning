@@ -27,6 +27,7 @@ Topics covered:
 - What's a Good Feature?
 - Data Cleaning Techniques?
 - Nonlinearity and Feature Crosses?
+- Tips on Creating Features
 - Model Complexity?
 - Regularization, L1 & L2, Lasso & Ridge?
 - Why Accuracy Can Be Misleading?
@@ -41,6 +42,7 @@ Topics covered:
 - Changing Validation Data and the Metric
 - Error Analysis
 - Standardization vs. Normalization?
+- Mutal Information vs. Correlation Coefficient?
 
 
 

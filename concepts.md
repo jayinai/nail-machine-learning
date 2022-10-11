@@ -193,6 +193,14 @@ Some data are not linearly separable so we need to encode nonlinearity. This can
 In practice, machine learning models seldom cross continuous features. However, machine learning models do ***frequently cross one-hot feature vectors***. Think of feature crosses of one-hot feature vectors as ***logical conjunctions***.
 
 
+### <ins> Tips on Creating Features
+- Linear models learn sums and differences naturally, but can't learn anything more complex.
+- Ratios seem to be difficult for most models to learn. Ratio combinations often lead to some easy performance gains.
+- Linear models and neural nets generally do better with normalized features. Neural nets especially need features scaled to values not too far from 0. Tree-based models (like random forests and XGBoost) can sometimes benefit from normalization, but usually much less so.
+- Tree models can learn to approximate almost any combination of features, but when a combination is especially important they can still benefit from having it explicitly created, especially when data is limited.
+- Counts are especially helpful for tree models, since these models don't have a natural way of aggregating information across many features at once.
+
+
 ### <ins> Model Complexity?
 
 Ways to think about model complexity:
@@ -381,3 +389,11 @@ Also, performing error analysis on the training is not uncommon, and will help s
 One major difference is that **standardization is column-wise** operation while **normalization is row-wise operation**, where each row is one data point and each column represents one feature.
 
 For standardization we remove the mean value of each feature, then scale it by dividing non-constant features by their standard deviation. For normalization we scale each individual sample to have unit norm. Normalization process can be useful if you plan to use a quadratic form such as the dot-product to quantify the similarity of any pair of samples
+
+### <ins> Mutal Information vs. Correlation Coefficient?
+
+**Mutual information (MI)** between two random variables is a **non-negative** value, which measures the dependency between the variables. It is equal to zero if and only if two random variables are independent, and higher values mean higher dependency.
+
+A **correlation coefficient (CC)** is a numerical measure of some type of correlation, meaning a statistical relationship between two variables. CC assumes values in the range **from −1 to +1**, where ±1 indicates the strongest possible agreement and 0 the strongest possible disagreement.
+
+Although both of them are a measure of relationship between two variables, MI is more general than CC since **CC can take into account linear relationships while MI can also handle non-linear relationships**.
