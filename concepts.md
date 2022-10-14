@@ -397,3 +397,45 @@ For standardization we remove the mean value of each feature, then scale it by d
 A **correlation coefficient (CC)** is a numerical measure of some type of correlation, meaning a statistical relationship between two variables. CC assumes values in the range **from −1 to +1**, where ±1 indicates the strongest possible agreement and 0 the strongest possible disagreement.
 
 Although both of them are a measure of relationship between two variables, MI is more general than CC since **CC can take into account linear relationships while MI can also handle non-linear relationships**.
+
+
+### <ins> What is Ensemble Learning?
+
+Ensemble learing uses **multiple learing algorthms to get better predicative performance**. We can use these techniques for regression as well as classification problems.
+
+Basic ensemble learning techniques include:
+
+- **Max voting** (classification; taking the mode of predictions)
+- **Averaging** (regression)
+- **Weighted average** (regresion; assign weights to different models based on their score)
+
+Advanced ensemble learning techniques:
+
+- **Stacking**: Predictions from each model are stacked together and used as input to a final model (usually called a meta-model). It's somewhat similar to the weighted average approach above, but the difference is that the weights are learned, rather than manually assigned. There is a also a term called **blending**, which trains the meta model on a different holdout set, rather than on the same training set used for the upstream models. Blending can prevent information leak but may lead to overfitting if the holdout set is small
+- **Bagging**: Builds different models in parallel using random subsets of data (with replacement) and deterministically aggregates the predictions of all predictors. A popular example of bagging is [random forest](https://en.wikipedia.org/wiki/Random_forest), which corrects for decision trees' habit of overfitting
+- **Boosting**: Boosting works by converting weak learners into strong learners in a sequential manner. This technique is iterative, sequential, and adaptive as each predictor fixes its predecessor’s error.
+
+Some common libraries for ensemle learning
+- [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble): bagging, stacking, boost
+- [CatBoost](https://catboost.ai/): gradient boosting
+- [XGBoost](https://xgboost.readthedocs.io/en/stable/): gradient boosting
+- [LightGBM](https://lightgbm.readthedocs.io/): gradient boosting
+
+In practice gradient boosted trees usually outperform bagging algorithms such as random forest but performance also depends on data characteristics.
+
+
+### <ins> CatBoost vs. XGBoost vs. LightGBM?
+
+[CatBoost](https://catboost.ai/), [XGBoost](https://xgboost.readthedocs.io/en/stable/), and [LightGBM](https://lightgbm.readthedocs.io/) are by far the most popular learning algorithms for handling structure datasets. They are all variants of **[gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting)** algorithms.
+
+Gradient boosting combines weak learners into a single strong learner in an iterative fashion. Say we have a gradient boosting algorithm with many stages. At each stage we need to add another learner such that the overall performance of the model imporoves, and we ahieve that by minimizing the loss using gradient descent.
+
+Please refer to the following [charts](https://towardsdatascience.com/catboost-vs-lightgbm-vs-xgboost-c80f40662924) for their differences:
+
+
+##### Characteristics
+![Characteristics of CatBoost, LightGBM, and XGBoost](assets/boosting1.png)
+
+##### Parameters to tune
+
+![Parameters to tune for CatBoost, LightGBM, and XGBoost](assets/boosting2.png)

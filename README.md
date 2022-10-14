@@ -43,7 +43,8 @@ Topics covered:
 - Error Analysis
 - Standardization vs. Normalization?
 - Mutal Information vs. Correlation Coefficient?
-
+- What is Ensemble Learning?
+- CatBoost vs. XGBoost vs. LightGBM
 
 
 ## [Machine Learning Operationalization (MLOps)](mlops.md)
