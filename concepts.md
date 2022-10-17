@@ -439,3 +439,56 @@ Please refer to the following [charts](https://towardsdatascience.com/catboost-v
 ##### Parameters to tune
 
 ![Parameters to tune for CatBoost, LightGBM, and XGBoost](assets/boosting2.png)
+
+
+### <ins> TF-IDF
+
+TF-IDF stands for **term frequency–inverse document frequency**, which is number to reflect **how important a term is to a document in a corpus**. TF-IDF is a common feature extraction techique.
+
+TF is the frequency a word appear in a specific document, while IDF is constant per corpus and accounts for the ratio of documents that include a specific word. Say we have a corpus (D) of 2 docs (d1, d2) and their word counts are:
+
+`d1 = {this: 1, is: 1: great: 1}`
+
+`d2 = {this: 1, does: 1, not: 1, sound: 1, feasible: 1}`
+
+so we have
+
+`TF('this', d1) = 1/3 = 0.33`
+
+`IDF('this', D) = log(2/2) = 0`
+
+`TFIDF('this', d1, D) = TF('this', d1) * IDF('this', D) = 0.33 * 0 = 0`
+
+What this means intuitively is that the word 'this' appear in all two documents in the corpus, and thus doesn't contribute to separating d1 from d2.
+
+How about the word 'feasible'?
+
+`TF('feasible', d2) = 1/5 = 0.2`
+
+`IDF('feasible', D) = log(2/1) = 0.301`
+
+`TFIDF('feasible', d2, D) = 0.2 * 0.301 = 0.0602`
+
+On the other hand, `TFIDF('feasible', d1, D) = 0`, so the word 'feasible' plays a role in seperating d1 from d2.
+
+When we represent a document with TD-IDF feature vectors, it would be a vector of size N, where N is the number of vocabularies in the corpus. And for the position index where a word appear this doc, we store the computed TF-IDF score, and 0s everywhere else. This vector is usually sparse.
+
+### <ins> Word2vec
+
+Word2vec is a technique to represent words with vectors. Specifically, it usually trains a neural network model to learn word association from a large corpus of data, say, the Wikipedia. The model is trained such that the learned word vectors capture the semantic meaning and syntactic qualities of words.
+
+As a word embedding technique, Word2vec can utilize either of two model architectures:
+- continuous **bag-of-words** (CBOW): model predicts the current word from the window of surrounding context words
+- continuous **skip-gram**: the model uses the current word to predict the surrounding window of context words
+
+
+Typically, the dimensionality of the vectors is set to be between 100 and 1000.
+
+Word2vec has extensions such as **doc2vec**, where *variable-length* piece of texts such as sentences, paragraphs, or even entire documents are represented with vectors. The training is similar to word2vec but in Doc2vec, an additional paragraph vector is added to the word vectors to predict the next word. This allows catching the similarities between doc/paragraph.
+
+![doc2vec](assets/doc2vec.png)
+
+
+### <ins> BERT
+
+BERT (Bidirectional Encoder Representations from Transformers) is a transformer-based techique to create word embeddings. Compared to word2vec (and Glove), which are context independent, BERT is context dependant, meaning it would generate different embeddings for the same word, depening on the context.

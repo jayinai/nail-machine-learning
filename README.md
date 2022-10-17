@@ -45,6 +45,9 @@ Topics covered:
 - Mutal Information vs. Correlation Coefficient?
 - What is Ensemble Learning?
 - CatBoost vs. XGBoost vs. LightGBM
+- TF-IDF
+- Word2vec
+- BERT
 
 
 ## [Machine Learning Operationalization (MLOps)](mlops.md)
