@@ -24,6 +24,38 @@ A couple of notes:
 -  ML is highly iterative in its nature. While some steps, such as business scoping and metrics, change less frequently, feature engineering and model training for examples can iterate very fast, which is a good thing because that's how your model improve. So don't assume the previous steps would follow a linear fashion.
 
 
+### <ins> Ways to Deploy ML Models
+
+There are different directions to think about how to deploy ML models in production:
+
+- Do we want to deploy machine learning models as a **real-time** prediction service (email auto complete) or in a **batch** prediction mode (Netflix movie recommendation updates every N hours for a user)?
+- Do we want to deploy models **on device** (some factory production lines) or as a web service?
+
+There are different factors to consider when we choose one of the previous directions:
+
+- **Latency**: How quickly does an application/user require the results of the model prediction?
+- **Throughput**: how many query per second (QPS) are we expecting?
+- **Data privacy**: Are there issues/concerns about sending data to the cloud?
+- **Network connectivity**: is there limited internet/network connectivity, and is the model required to make prediction even without internet?
+- **Cost**: some deployment options would be more costly then others. What's the cost expectation?
+
+Let's take deploying models as an independent service (most commonly REST APIs) as an example and see some options:
+
+- **On-prem vs. cloud**: you can provision virtual machines locally or on the cloud to accept REST APIs calls to your models
+- **Virutal machines (VM) vs. containers**: compared to provisioning VM, you can also use lightweight service such as dock containers (which is recommended in most cases) to host your models. There are even open source solution specifically built to package ML models in containers, such as Cog, BentoML, and Truss
+- **CPU vs. GPU**: you may wonder this especially for deep learning models (neural networks). But just because they are trained on GPU doesn't mean they have to be served on GPU as well. In fact, you can [serve 1 billion+ daily requests using neural network models on CPU only](https://www.youtube.com/watch?v=Nw77sEAn_Js)
+- **Serverless**: Yet another way to deploy ML models is to do it in a serverless fashion so you don't even have to worry about infrastructure. It has its con though: if you don't have a stable traffic, it sometimes would take a while for the service to re-start, causing latency for real-time prediction use cases
+
+### <ins> Ways to Speed Up Model Inference
+
+Other things being equal, you almost always want your model inference to take less time. It will involve a tradeoff between model performance (metrics such as accuray, F1 score etc.) so it's a judgement call. If you ever want to speed up model inference time in production, here are some ways:
+
+- **Model distillation**: once you have a large model that you've trained, you can train a smaller model that imitates the behavior of your larger one. It basically creates a much smaller model with a tolerable performace decrease - e.g., inference time reduced to 1/3 with a accuray decrease of only 0.5%. An example is DistilBERT to BERT
+- **Quantization**: you execute some or potentially all of the operations in your model in a lower fidelity representation, e.g., use 8-bit integer or 16-bit floating point numbers
+- **Caching**: for some of your ML models, you realize some inputs are more common than others. Instead of always calling the model every time a user makes a request, let's store the common requests in a cache
+- **Horizontal scaling**: a more brute force way is to provision more containers/VMs/cores to share the workload of model inference
+
+
 ### <ins> Static vs. Dynamic Training
 
 - A ***static model*** is trained offline. That is, we train the model exactly once and then use that trained model for a while.

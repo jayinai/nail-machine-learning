@@ -54,6 +54,8 @@ Topics covered:
 
 Topics covered:
 - Setting up an End-To-End ML System in the Real World
+- Ways to Deploy ML Models
+- Ways to Speed Up Model Inference
 - Static vs. Dynamic Training
 - Offline vs. Online Inference
 - Human Bias
