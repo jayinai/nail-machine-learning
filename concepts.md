@@ -93,6 +93,22 @@ A related topic in machine learning: bias-variance tradeoff. Skipping all the ma
 
 We want our model to strike a good balance between bias and variance because if we reduce model complexity, the bias error might increase and if we increase its complexity, the variance error might go up. An optimal balance leads to a model that neither overfits nor underfits.
 
+Techniques to **reduce underfitting**:
+
+- Increase model complexity
+- Increase the number of features, performing feature engineering
+- Remove noise from the data.
+- Increase the number of epochs or increase the duration of training to get better results.
+
+
+Techniques to **reduce overfitting**:
+
+- Increase training data.
+- Reduce model complexity.
+- Early stopping during the training phase (have an eye over the loss over the training period as soon as loss begins to increase stop training).
+- Ridge Regularization and Lasso Regularization
+- Use dropout for neural networks to tackle overfitting.
+
 
 ### <ins> Bayes Error Rate?
 
