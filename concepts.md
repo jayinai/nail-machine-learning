@@ -35,6 +35,8 @@ While a binary classifier outputs a decimal probability between 0 and 1.0, ***So
 2. Negative: 0.09
 3. Neutral: 0.64
 
+A binary classifer tries to minimize the **binary cross entropy loss** while a multiclass classifier minimizes a **categorical cross entropy loss**.
+
 When we have a huge number of classes (e.g., 10k+), regular Softmax can start to become expensive too. That's when we can apply ***candidate sampling***, which means that Softmax calculates a probability for all the positive labels but only for a random sample of negative labels. Think of it this way:
 
 >If we are interested in determining whether an input image is a beagle or a bloodhound, we don't have to provide probabilities for every non-doggy example.
@@ -418,7 +420,12 @@ Although both of them are a measure of relationship between two variables, MI is
 
 Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. It is non-parametric because there are no parameters to be learned; rather decision trees make decisions by splitting into branches according to some criteria.
 
-Some common criteria include Gini impurity and Shannon information gain. Skipping the math, the criterion needs to make sure the data is split in such a way that the left and right branches are as "separable" as possible (e.g., the best case would be all examples in the left branch belong to one class and all examples in the right branch belong to another class)
+Some common criteria include **Gini impurity and Shannon information gain**. Skipping the math, the criterion needs to make sure the data is split in such a way that the **left and right branches are as "pure" as possible** (e.g., the best case would be all examples in the left branch belong to one class and all examples in the right branch belong to another class)
+
+What are commonly used criteria to decide to **stop splitting**?
+- When the tree has reached a maximum depth
+- When the number of examples in a node is below a threshold
+
 
 Some advantages of decision trees are:
 - Simple to understand and to interpret. Trees can be visualized.
@@ -426,7 +433,7 @@ Some advantages of decision trees are:
 - Fast (logarithmic in the number of data points used to train the tree)
 - Able to handle both numerical and categorical data
 
-Decision trees, however, can be unstable because small variations in the data might result in a completely different tree being generated, and decision trees can create over-complex trees that do not generalize the data well (overfitting).
+Decision trees, however, can be **unstable** because small variations in the data might result in a completely different tree being generated, and decision trees can create over-complex trees that do not generalize the data well (**overfitting**).
 
 A common way to migitate these is to use ensemble learning. Pruning the tree to make it smaller can also address overfitting.
 
@@ -530,3 +537,43 @@ Word2vec has extensions such as **doc2vec**, where *variable-length* piece of te
 ### <ins> BERT
 
 BERT (Bidirectional Encoder Representations from Transformers) is a transformer-based techique to create word embeddings. Compared to word2vec (and Glove), which are context independent, BERT is context dependant, meaning it would generate different embeddings for the same word, depening on the context.
+
+
+### <ins> K-means Clustering
+
+K-means is an unsupervised learning algorithm that segement the unlabeled data points in the K clusters. The algirhtm minimizes a criterion known as the **inertia or within-cluster sum-of-squares**. Users need to specify the K, the number of clusters, based on business knowledge or requirement (e.g., the number of customer segment is known) or K  can be chosen with the help of the elbow method.
+
+![elbow](assets/elbow.png)
+
+K-means algirhtm works like this:
+
+![kmeans](assets/kmeans.png)
+
+### <ins> Anomaly Detection
+
+Anomaly detection is an unsupervised learning algorithm that detects data points that are far from others. Anomaly detection algorithms usually compute the probability density function given all the features and treats data points that fall out of the distribution as anomaly (or outliers).
+
+Some common anomaly detection algorithms shown below:
+
+![anomaly](assets/anomaly.png)
+
+
+### <ins> Recommendation Systems
+
+There are two main approaches to building a recommender system:
+
+**1. Collaborative filtering**: Collaborative filtering is based on the assumption that people who agreed in the past will agree in the future, and that they will like similar kinds of items as they liked in the past. The system generates recommendations using only information about rating for different users or items. For example, **if you and another user both rated several items similarly, the items that she like but you didn't try is likely to interest you and would therefore be recommended to you**
+
+Collaborative filtering approaches often suffer from three problems:
+- Cold start: For a new user or item, there isn't enough data to make accurate recommendations
+- Scalability: large amount of computation is needed for millions of users and products
+- Sparsity: a small subset of users interact with a small subset of items
+
+**2. Content-based filtering** is another approach, where algirhtm would be trained on **user and item features**
+
+- User features: age, gender, country, histically liked items etc.
+- Item features: year, category, reviews, average ratings, etc.
+
+These features can be represented and concatenated to feed into any learning algorithms.
+
+**3. Hybrid**: Most recommender systems now use a hybrid approach, combining collaborative filtering, content-based filtering, and other approaches.

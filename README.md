@@ -50,6 +50,9 @@ Topics covered:
 - TF-IDF
 - Word2vec
 - BERT
+- K-means Clustering
+- Anomaly Detection
+- Recommendation Systems
 
 
 ## [Machine Learning Operationalization (MLOps)](mlops.md)
