@@ -56,6 +56,25 @@ Other things being equal, you almost always want your model inference to take le
 - **Horizontal scaling**: a more brute force way is to provision more containers/VMs/cores to share the workload of model inference
 
 
+### <ins> Data Collection
+
+When building a model from a user's behavior, a distinction is often made between explicit and implicit forms of data collection.
+
+Examples of **explicit data collection** include the following:
+- Asking a user to rate an item on a sliding scale.
+- Asking a user to search.
+- Asking a user to rank a collection of items from favorite to least favorite.
+- Presenting two items to a user and asking him/her to choose the better one of them.
+- Asking a user to create a list of items that he/she likes
+
+Examples of **implicit data collection** include the following:
+
+- Observing the items that a user views in an online store.
+- Analyzing item/user viewing times.
+- Keeping a record of the items that a user purchases online.
+- Obtaining a list of items that a user has listened to or watched on his/her computer.
+- Analyzing the user's social network and discovering similar likes and dislikes.
+
 ### <ins> Static vs. Dynamic Training
 
 - A ***static model*** is trained offline. That is, we train the model exactly once and then use that trained model for a while.

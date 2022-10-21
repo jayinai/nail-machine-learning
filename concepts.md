@@ -564,6 +564,12 @@ There are two main approaches to building a recommender system:
 
 **1. Collaborative filtering**: Collaborative filtering is based on the assumption that people who agreed in the past will agree in the future, and that they will like similar kinds of items as they liked in the past. The system generates recommendations using only information about rating for different users or items. For example, **if you and another user both rated several items similarly, the items that she like but you didn't try is likely to interest you and would therefore be recommended to you**
 
+
+Collaborative filtering is based on past interactions of the whole user base. There are two Collaborative filtering approaches: **item-based** or **user-based**.
+
+- item-based: for user `u`, a score for an unrated item is produced by combining the ratings of users similar to `u`.
+- user-based: a rating `(u, i)` is produced by looking at the set of items similar to `i`, then the ratings by `u` of similar items are combined into a predicted rating
+
 Collaborative filtering approaches often suffer from three problems:
 - Cold start: For a new user or item, there isn't enough data to make accurate recommendations
 - Scalability: large amount of computation is needed for millions of users and products
@@ -575,5 +581,7 @@ Collaborative filtering approaches often suffer from three problems:
 - Item features: year, category, reviews, average ratings, etc.
 
 These features can be represented and concatenated to feed into any learning algorithms.
+
+In recommender systems traditionally matrix factorization methods are used, although deep learning based methods are more prevalent now.
 
 **3. Hybrid**: Most recommender systems now use a hybrid approach, combining collaborative filtering, content-based filtering, and other approaches.
