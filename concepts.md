@@ -414,6 +414,21 @@ A **correlation coefficient (CC)** is a numerical measure of some type of correl
 
 Although both of them are a measure of relationship between two variables, MI is more general than CC since **CC can take into account linear relationships while MI can also handle non-linear relationships**.
 
+### <ins> Decision Trees
+
+Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. It is non-parametric because there are no parameters to be learned; rather decision trees make decisions by splitting into branches according to some criteria.
+
+Some common criteria include Gini impurity and Shannon information gain. Skipping the math, the criterion needs to make sure the data is split in such a way that the left and right branches are as "separable" as possible (e.g., the best case would be all examples in the left branch belong to one class and all examples in the right branch belong to another class)
+
+Some advantages of decision trees are:
+- Simple to understand and to interpret. Trees can be visualized.
+- Requires little data preparation (normalization etc.)
+- Fast (logarithmic in the number of data points used to train the tree)
+- Able to handle both numerical and categorical data
+
+Decision trees, however, can be unstable because small variations in the data might result in a completely different tree being generated, and decision trees can create over-complex trees that do not generalize the data well (overfitting).
+
+A common way to migitate these is to use ensemble learning. Pruning the tree to make it smaller can also address overfitting.
 
 ### <ins> What is Ensemble Learning?
 
@@ -438,6 +453,13 @@ Some common libraries for ensemle learning
 - [LightGBM](https://lightgbm.readthedocs.io/): gradient boosting
 
 In practice gradient boosted trees usually outperform bagging algorithms such as random forest but performance also depends on data characteristics.
+
+
+### <ins> Random Forest
+
+A random forest is a meta estimator that fits a number of decision tree classifiers on various **sub-samples** of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is usually controlled with a max samples parameter if bootstrap=True, otherwise the whole dataset is used to build each tree.
+
+You can also select the max number of features to use when looking for the best split, and a common value is the square root of total number of features.
 
 
 ### <ins> CatBoost vs. XGBoost vs. LightGBM?

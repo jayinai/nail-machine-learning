@@ -43,7 +43,9 @@ Topics covered:
 - Error Analysis
 - Standardization vs. Normalization?
 - Mutal Information vs. Correlation Coefficient?
+- Decision Trees
 - What is Ensemble Learning?
+- Random Forest
 - CatBoost vs. XGBoost vs. LightGBM
 - TF-IDF
 - Word2vec
