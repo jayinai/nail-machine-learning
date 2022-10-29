@@ -404,9 +404,21 @@ Also, performing error analysis on the training is not uncommon, and will help s
 
 ### <ins> Standardization vs. Normalization?
 
-One major difference is that **standardization is column-wise** operation while **normalization is row-wise operation**, where each row is one data point and each column represents one feature.
+Both are scaling techiques.
 
-For standardization we remove the mean value of each feature, then scale it by dividing non-constant features by their standard deviation. For normalization we scale each individual sample to have unit norm. Normalization process can be useful if you plan to use a quadratic form such as the dot-product to quantify the similarity of any pair of samples
+Normalization or min-max scaling is calculate as
+
+`X_new = (X - X_min)/(X_max - X_min)`
+
+Standardization or z-score normalization is calculate as
+
+`X_new = (X - mean)/Std`
+
+Normalization scales the range to [0, 1] or sometimes [-1, 1], while standardization is not bounded to a certain range. As normalization usually deals with min and max values, it can be affected by outliers easily.
+
+If we don't know the distribution of the data, normalization can often be useful. On the other hand, if we know the the distribution to be normal already, then standardization can be useful. In practice, it's hard to say which outperform the other so experiment is the key.
+
+Also, some regard  standardization to be an column-wise operation while normalization as row-wise operation, where each row is one data point and each column represents one feature.
 
 ### <ins> Mutal Information vs. Correlation Coefficient?
 
