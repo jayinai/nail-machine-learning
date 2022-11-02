@@ -123,3 +123,26 @@ It tackles four primary functions:
 - ***Packaging ML code in a reusable, reproducible form*** in order to share with other data scientists or transfer to production (MLflow Projects).
 - ***Managing and deploying models*** from a variety of ML libraries to a variety of model serving and inference platforms (MLflow Models).
 - ***Providing a central model store*** to collaboratively manage the full lifecycle of an MLflow Model, including model versioning, stage transitions, and annotations (MLflow Model Registry).
+
+
+###  <ins> Data Leakage
+
+Data leakage happens when your training data contains information about the label, but similar data will not be available when your model is used for prediction. This can lead to usually high performance on the training set (and possibly even the validation data), but the model will perform poorly in production. Not splitting time series data in a chronological order and training future data to predict previous labels is one example of data leakage.
+
+These are the common causes for data leakage:
+
+- Splitting time-correlated data randomly instead of by time
+- Scaling before splitting (since scaling requires global statistics, if we used the stats of the entire dataset to scale training data, we are essentially leaking the stats of test set into training data)
+- Filling in missing data with statistics from the test split (similar to above as we leak test data's information to training data)
+- Poor handling of data duplication before splitting (test set has duplicates of training data)
+- Group leakage (e.g., two CT scans from the same patients, one split into training and the other in testing)
+- From data generation process (different standards of acquiring data - e.g., deep learning model using resolution/contrast as feature to make medical imaging predictions)
+
+How to mitigate data leakage:
+
+- Split data by time when appropriate
+- Scaling/filling missing values **after** splitting
+- Check duplicates or groups
+- Standardize data so formatting and noise won't be used as features
+- If a feature or features have unusually high correlation with the label, investigate how this feature is generated and whether the correlation makes sense (start date + end date can predict legnth of employment)
+- Be very careful every time you look at the test split - if you use it in any way (e.g., coming up ideas for features) other than merely reporting the final performace, there is risk of data leakage
